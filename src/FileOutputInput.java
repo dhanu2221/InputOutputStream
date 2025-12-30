@@ -17,7 +17,8 @@ public class FileOutputInput {
     catch(Exception e) {
     	e.getStackTrace();
     }
-
+	log.info("Completed reading from ByteArrayInputStream");
+	log.info("Exiting main method");
 }
 }
 
