@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+      nodejs: 20
+    commands:
+      - echo "Installing dependencies"
+      - java -version
+      - node -v
+
+  pre_build:
+    commands:
+      - echo "Pre-build phase started"
+      - echo "Preparing build environment"
+      - ls -la
+
+  build:
+    commands:
+      - echo "Build started"
+      - echo "Running tests"
+      - npm install
+      - npm test
+      - echo "Generating index.yml"
+      - echo "version: 1.0" > index.yml
+
+  post_build:
+    commands:
+      - echo "Post build phase"
+      - echo "Build completed"
+      - date
